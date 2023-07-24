@@ -15,6 +15,18 @@ function Employee(name, age, jobTitle) {
   this.jobTitle = jobTitle;
 }
 
+// Inherit the Person prototype
+Employee.prototype = Object.create(Person.prototype);
+Employee.prototype.constructor = Employee;
+
+// Example usage:
+const person1 = new Person("Alice", 25);
+person1.greet(); // Output: Hello, my name is Alice, I am 25 years old.
+
+const employee1 = new Employee("Bob", 30, "Engineer");
+employee1.greet(); // Output: Hello, my name is Bob, I am 30 years old.
+console.log(employee1.jobTitle); // Output: Engineer
+
 // Do not change code below this line
 window.Person = Person;
 window.Employee = Employee;
